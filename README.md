@@ -1,2 +1,5 @@
-# proj-exercise-tracker-fcc
-Exercise Tracker - A Free Code Camp project from the APIs and Microservices Module
+# Exercise Tracker REST API
+
+#### A microservice project, part of Free Code Camp's curriculum
+
+
