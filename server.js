@@ -5,11 +5,14 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 
 const mongoose = require('mongoose')
-mongoose.connect(process.env.MLAB_URI, { useMongoClient: true });
+const db = require('./db');
+const User = db.User;
+
+mongoose.connect(process.env.MLAB_URI, {useMongoClient: true})
 
 app.use(cors())
 
-app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 
 
@@ -18,6 +21,40 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/views/index.html')
 });
 
+app.post('/api/exercise/new-user', (req, res, next) => {
+  db.createNewUser(req.body.username, (err, data) => {
+    let user = { "_id": data._id, "username": data.username };
+    res.json(user);
+  });
+});
+
+app.post('/api/exercise/add', (req, res, next) => {
+  let entry = {
+    "description": req.body.description,
+    "duration": req.body.duration,
+    "date": new Date(req.body.date)
+  };
+  
+  db.addExercise(req.body.userId, entry, (err, doc) => {
+    //console.log(doc);
+    let d = new Date(doc.log[doc.log.length - 1].date).toDateString();
+    let readable = {
+      "_id": doc._id,
+      "username": doc.username,
+      "description": doc.log[doc.log.length - 1].description,
+      "duration": doc.log[doc.log.length - 1].duration,
+      "date": d
+    };
+    res.json(readable);
+  });
+});
+
+app.get('/api/exercise/log', (req, res, next) => {
+  let filter = {"from": req.query.from, "to": req.query.to, "limit": req.query.limit};
+  db.getExercises(req.query.userId, filter, (err, doc) => {
+    res.json(doc);
+  });
+});
 
 // Not found middleware
 app.use((req, res, next) => {

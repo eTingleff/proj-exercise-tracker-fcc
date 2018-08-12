@@ -405,10 +405,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-FiaFwKl864onHFFUV/a2szAl7X0fxVlSKNdhTf+BM8i8goEgYut8u5P9MqQqIYwvaMxjzVESsoEm/2kfkFH1rg==
-  /nanoid/1.1.0:
+  /nanoid/1.2.0:
     dev: false
     resolution:
-      integrity: sha512-iOCqgXieGrk8/wDt1n9rZS2KB1dYVssemY0NTWjfzVr+1t1gAmdTp1u2+YHppKro3Bk5S+Gs+xmYCfpuXauYXQ==
+      integrity: sha512-rJvd0q5Bq375+jrMAJh8vZk+0Q4lnHyuqZL2fbrc9moYy4DCld5VSycYLXvwFHbbut1+UcjA+fm0bq4ADVBYQg==
   /negotiator/0.6.1:
     dev: false
     engines:
@@ -579,7 +579,7 @@ packages:
       integrity: sha512-BvE/TwpZX4FXExxOxZyRGQQv651MSwmWKZGqvmPcRIjDqWub67kTKuIMx43cZZrS/cBBzwBcNDWoFxt2XEFIpQ==
   /shortid/2.2.12:
     dependencies:
-      nanoid: 1.1.0
+      nanoid: 1.2.0
     dev: false
     resolution:
       integrity: sha512-sw0knB/ioTu/jVYgJz1IP1b5uhPZtZYwQ9ir/EqXZHI4+Jh8rzzGLM3LKptGHBKoDsgTBDfr4yCRNUX7hEIksQ==
