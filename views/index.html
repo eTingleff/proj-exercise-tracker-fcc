@@ -13,6 +13,7 @@
          <h1>Exercise tracker</h1>
           <form action="/api/exercise/new-user" method="post">
             <h3>Create a New User</h3>
+            <p><em>Copy the ID in the resulting response for future queries</em></p>
             <p><code>POST /api/exercise/new-user</code></p>
             <input id="uname" type="text" name="username" placeholder="username">
             <input type="submit" value="Submit">
@@ -29,6 +30,10 @@
           <p><strong>GET users's exercise log: </strong><code>GET /api/exercise/log?{userId}[&amp;from][&amp;to][&amp;limit]</code></p>
           <p><strong>{ }</strong> = required, <strong>[ ]</strong> = optional</p>
           <p><strong>from, to</strong> = dates (yyyy-mm-dd); <strong>limit</strong> = number</p>
+        <p><strong>Example 1 (Get all of the user's logs):</strong><br><br><a href="https://proj-exercise-tracker-fcc.glitch.me/api/exercise/log?userId=5b9f4015d2505548c64b737a">/api/exercise/log?userId=5b9f4015d2505548c64b737a</a></p>
+        <p><strong>Example 2 (Get all of the user's logs after a specific date):</strong><br><br><a href="https://proj-exercise-tracker-fcc.glitch.me/api/exercise/log?userId=5b9f4015d2505548c64b737a&from=2010-01-01">/api/exercise/log?userId=5b9f4015d2505548c64b737a&from=2010-01-01</a></p>
+        <p><strong>Example 3 (Get all of the user's logs between two dates):</strong><br><br><a href="https://proj-exercise-tracker-fcc.glitch.me/api/exercise/log?userId=5b9f4015d2505548c64b737a&from=2010-01-01&to=2050-01-01">/api/exercise/log?userId=5b9f4015d2505548c64b737a&from=2010-01-01&to=2050-01-01</a></p>
+        <p><strong>Example 4 (Get all of the user's logs between two dates and limited):</strong><br><br><a href="https://proj-exercise-tracker-fcc.glitch.me/api/exercise/log?userId=5b9f4015d2505548c64b737a&from=2010-01-01&to=2050-01-01&limit=5">/api/exercise/log?userId=5b9f4015d2505548c64b737a&from=2000-01-01&to=2050-01-01&limit=5</a></p>
       </div>
    </body>
 

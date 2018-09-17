@@ -36,15 +36,16 @@ app.post('/api/exercise/add', (req, res, next) => {
   };
   
   db.addExercise(req.body.userId, entry, (err, doc) => {
-    //console.log(doc);
+    // console.log(doc);
     let d = new Date(doc.log[doc.log.length - 1].date).toDateString();
     let readable = {
       "_id": doc._id,
       "username": doc.username,
-      "description": doc.log[doc.log.length - 1].description,
-      "duration": doc.log[doc.log.length - 1].duration,
-      "date": d
+      "description": entry.description,
+      "duration": entry.duration,
+      "date": entry.date.toDateString()
     };
+    
     res.json(readable);
   });
 });
